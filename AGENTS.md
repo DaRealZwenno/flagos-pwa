@@ -68,3 +68,13 @@ Zugänge: dieselbe Passwortdatei wie Broadcast (`/home/hoffandt/.htpasswds/broad
 
 ## Updates auf den Geräten
 Die PWA sucht beim Öffnen, beim Zurückwechseln und alle 30 Minuten nach einer neuen Version und zeigt dann „Update verfügbar“. Aktiv wird die neue Version erst nach „Neu laden“, nie automatisch. Die laufende Version steht unten in der Seitenleiste (`v0.1.0 · Commit`).
+
+## Datenbank und Umgebungen (Stand 31.10.2026)
+
+Dieses Repo ist **öffentlich**: keine Projekt-Kennungen, Schlüssel, internen Pläne oder Termine in diese Datei oder in Commits schreiben. Details stehen im privaten Backend-Repo (`supabase/README.md`).
+
+- **Zwei Umgebungen:** Live und Probebühne (Staging). Zuerst Probebühne, Live **nur mit ausdrücklicher Freigabe von Sven** (Migrationen, Daten, Einstellungen, Storage, Server).
+- **Lokal gegen die Probebühne:** `npm run dev` liest `.env.development.local` (Probebühne), der Produktions-Build liest `.env.local` (Live). Beide Dateien nicht im Repo; nur der öffentliche anon-Schlüssel gehört in den Build.
+- **Migrationen nur im Backend-Repo** (Zeitstempel-Namen, je Migration Rollback und Zugriffstest). Hier keine eigenen Migrationen.
+- **Aufräumen vor neuen Funktionen:** keine neuen Tabellen mit eigenem Team-, Personen- oder Mitgliederkonzept; neue Fachtabellen bauen auf der gemeinsamen Kernstruktur (Teams, Personen, Rechte, Wettbewerbe) auf.
+- **Neue Namen kommen** (u. a. `tournament*` → `competition*`): neuen Code nicht unnötig auf die alten Namen bauen.
